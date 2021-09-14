@@ -1,0 +1,13 @@
+[Unit]
+Description= License manager
+
+[Service]
+ExecStart=/usr/bin/env license-manager
+SyslogIdentifier=license-manager
+Restart=always
+
+Type=dbus
+BusName=com.ibm.License.Manager
+
+[Install]
+WantedBy=multi-user.target

@@ -30,7 +30,8 @@ public:
    */
   LicenseMgr(sdbusplus::bus::bus &bus, sdeventplus::Event &event,
              const char *path)
-      : iface(bus, path, true), bus(bus), event(event), objectPath(path){};
+      : iface(bus, path, iface::action::emit_interface_added), bus(bus),
+        event(event), objectPath(path){};
 
   std::string licenseString(std::string value) override {
     // On updating new license string set licenseActivationStatus to Pending,

@@ -28,10 +28,9 @@ public:
    *  @param[in] bus - Bus to attach to.
    *  @param[in] path - Path to attach at.
    */
-  LicenseMgr(sdbusplus::bus::bus &bus, sdeventplus::Event &event,
+  LicenseMgr(sdbusplus::bus_t& bus, sdeventplus::Event &event,
              const char *path)
-      : iface(bus, path, iface::action::emit_interface_added), bus(bus),
-        event(event), objectPath(path){};
+      : iface(bus, path), bus(bus), event(event), objectPath(path){};
 
   std::string licenseString(std::string value) override {
     // On updating new license string set licenseActivationStatus to Pending,
@@ -44,7 +43,7 @@ public:
 
 private:
   /** @brief sdbusplus DBus bus connection. */
-  sdbusplus::bus::bus &bus;
+  sdbusplus::bus_t& bus;
   // sdevent Event handle
   sdeventplus::Event &event;
   /** @brief object path */

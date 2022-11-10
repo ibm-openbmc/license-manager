@@ -2,11 +2,6 @@
 
 #include <sdeventplus/event.hpp>
 
-//#include <phosphor-logging/elog-errors.hpp>
-//#include <phosphor-logging/elog.hpp>
-//#include <phosphor-logging/log.hpp>
-//#include <xyz/openbmc_project/Common/error.hpp> 
-
 int main()
 {
     auto bus = sdbusplus::bus::new_default();
